@@ -4,1127 +4,1185 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>TSE — Technical Sourcing Excellence</title>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-/* ===================== RESET & BASE ===================== */
-*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-:root {
-  --navy:   #0A1628;
-  --navy2:  #12223F;
-  --navy3:  #0E2A4A;
-  --teal:   #00C9A7;
-  --teal2:  #00A98F;
-  --gold:   #F4A825;
-  --gold2:  #E09820;
-  --white:  #FFFFFF;
-  --light:  #F7F9FC;
-  --muted:  #7A8FA6;
-  --text:   #1A2B3C;
-  --border: #DDE6F0;
-}
-body {
-  font-family: 'DM Sans', sans-serif;
-  color: var(--text);
-  background: var(--white);
-  overflow-x: hidden;
-  font-size: 16px;
-  line-height: 1.6;
-}
-a { text-decoration: none; color: inherit; }
-img { max-width: 100%; display: block; }
-ul { list-style: none; }
+/* ── RESET ── */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+img{display:block;max-width:100%}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
 
-/* ===================== UTILITY ===================== */
-.section-inner { max-width: 1120px; margin: 0 auto; }
-section { padding: 5rem 3rem; }
-.section-tag {
-  display: inline-block;
-  background: rgba(0,201,167,0.12);
-  color: var(--teal2);
-  font-size: 0.73rem;
-  font-weight: 500;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  padding: 0.3rem 0.85rem;
-  border-radius: 4px;
-  margin-bottom: 1rem;
-}
-h2 {
-  font-family: 'Syne', sans-serif;
-  font-size: 2.2rem;
-  font-weight: 800;
-  color: var(--navy);
-  line-height: 1.18;
-  margin-bottom: 0.65rem;
-}
-.section-lead {
-  color: var(--muted);
-  font-size: 1rem;
-  line-height: 1.85;
-  max-width: 620px;
-  margin-bottom: 2.75rem;
-}
-.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
-.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
-
-/* ===================== BUTTONS ===================== */
-.btn-primary {
-  display: inline-block;
-  background: var(--teal);
-  color: var(--navy);
-  padding: 0.78rem 1.85rem;
-  border-radius: 8px;
-  font-weight: 500;
-  font-size: 0.95rem;
-  transition: background 0.2s, transform 0.15s;
-  border: none;
-  cursor: pointer;
-}
-.btn-primary:hover { background: var(--teal2); transform: translateY(-2px); }
-
-.btn-outline {
-  display: inline-block;
-  background: transparent;
-  color: #fff;
-  padding: 0.78rem 1.85rem;
-  border-radius: 8px;
-  font-weight: 400;
-  font-size: 0.95rem;
-  border: 1px solid rgba(255,255,255,0.28);
-  cursor: pointer;
-  transition: border-color 0.2s, background 0.2s;
-}
-.btn-outline:hover { border-color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.06); }
-
-/* ===================== NAVBAR ===================== */
-nav {
-  background: var(--navy);
-  padding: 0 3rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 72px;
-  position: sticky;
-  top: 0;
-  z-index: 999;
-  border-bottom: 1px solid rgba(255,255,255,0.07);
-}
-.logo { display: flex; align-items: center; gap: 13px; }
-.logo-mark svg { width: 44px; height: 44px; display: block; }
-.logo-wordmark { display: flex; flex-direction: column; }
-.logo-wordmark .name {
-  font-family: 'Syne', sans-serif;
-  font-size: 1.4rem;
-  font-weight: 800;
-  color: #fff;
-  letter-spacing: 0.04em;
-  line-height: 1;
-}
-.logo-wordmark .tagline {
-  font-size: 0.6rem;
-  font-weight: 400;
-  letter-spacing: 0.13em;
-  text-transform: uppercase;
-  color: var(--teal);
-  margin-top: 3px;
-}
-.nav-links { display: flex; gap: 2.25rem; align-items: center; }
-.nav-links a {
-  color: rgba(255,255,255,0.7);
-  font-size: 0.875rem;
-  font-weight: 400;
-  transition: color 0.2s;
-  letter-spacing: 0.015em;
-}
-.nav-links a:hover { color: #fff; }
-.nav-store {
-  background: var(--teal) !important;
-  color: var(--navy) !important;
-  padding: 0.45rem 1.25rem;
-  border-radius: 7px;
-  font-weight: 500 !important;
-  transition: background 0.2s !important;
-}
-.nav-store:hover { background: var(--teal2) !important; }
-
-/* ===================== HERO ===================== */
-.hero {
-  background: linear-gradient(140deg, var(--navy) 0%, var(--navy2) 55%, var(--navy3) 100%);
-  padding: 5.5rem 3rem 4.5rem;
-  position: relative;
-  overflow: hidden;
-}
-.hero::before {
-  content: '';
-  position: absolute;
-  top: -30%; right: -8%;
-  width: 650px; height: 650px;
-  background: radial-gradient(circle, rgba(0,201,167,0.09) 0%, transparent 70%);
-  pointer-events: none;
-}
-.hero::after {
-  content: '';
-  position: absolute;
-  bottom: -25%; left: 3%;
-  width: 420px; height: 420px;
-  background: radial-gradient(circle, rgba(244,168,37,0.06) 0%, transparent 70%);
-  pointer-events: none;
-}
-.hero-inner {
-  max-width: 1120px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3.5rem;
-  align-items: center;
-}
-.hero-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 9px;
-  background: rgba(0,201,167,0.13);
-  border: 1px solid rgba(0,201,167,0.3);
-  padding: 0.38rem 1rem;
-  border-radius: 24px;
-  margin-bottom: 1.6rem;
-}
-.badge-dot {
-  width: 7px; height: 7px;
-  background: var(--teal);
-  border-radius: 50%;
-  animation: pulse 2s ease-in-out infinite;
-}
-@keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:0.35; } }
-.hero-badge span {
-  color: var(--teal);
-  font-size: 0.77rem;
-  font-weight: 500;
-  letter-spacing: 0.09em;
-  text-transform: uppercase;
-}
-.hero h1 {
-  font-family: 'Syne', sans-serif;
-  font-size: 3.2rem;
-  font-weight: 800;
-  color: #fff;
-  line-height: 1.12;
-  margin-bottom: 1.3rem;
-}
-.hero h1 em { color: var(--teal); font-style: normal; }
-.hero p {
-  color: rgba(255,255,255,0.68);
-  font-size: 1.05rem;
-  line-height: 1.85;
-  margin-bottom: 2.1rem;
-  max-width: 520px;
-}
-.hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
-.hero-img {
-  border-radius: 18px;
-  overflow: hidden;
-  aspect-ratio: 4 / 3;
-  box-shadow: 0 32px 80px rgba(0,0,0,0.4);
-}
-.hero-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.hero-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
-.stat {
-  text-align: center;
-  padding: 1.1rem;
-  background: rgba(255,255,255,0.045);
-  border: 1px solid rgba(255,255,255,0.09);
-  border-radius: 12px;
-}
-.stat-num {
-  display: block;
-  font-family: 'Syne', sans-serif;
-  font-size: 1.9rem;
-  font-weight: 800;
-  color: var(--teal);
-  margin-bottom: 3px;
-}
-.stat-label {
-  font-size: 0.74rem;
-  color: rgba(255,255,255,0.45);
-  letter-spacing: 0.07em;
-  text-transform: uppercase;
+/* ── TOKENS ── */
+:root{
+  --cream:#F5F0E8;
+  --cream2:#EDE7D9;
+  --cream3:#E2D9C7;
+  --ink:#0F0C09;
+  --ink2:#1C1812;
+  --amber:#C8860A;
+  --amber2:#E09B10;
+  --rust:#A84323;
+  --sage:#3D5A4C;
+  --white:#FDFBF7;
+  --muted:#7A6E5F;
+  --border:#D4CABC;
+  --serif:'Playfair Display',Georgia,serif;
+  --sans:'Outfit',sans-serif;
 }
 
-/* ===================== KNOWLEDGE CARDS ===================== */
-.k-card {
-  background: var(--light);
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: 1.85rem;
-  transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
-  cursor: default;
-}
-.k-card:hover {
-  border-color: var(--teal);
-  transform: translateY(-4px);
-  box-shadow: 0 12px 36px rgba(0,201,167,0.1);
-}
-.k-icon {
-  width: 46px; height: 46px;
-  background: rgba(0,201,167,0.1);
-  border-radius: 11px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 1.1rem;
-}
-.k-icon svg { width: 22px; height: 22px; stroke: var(--teal2); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-.k-card h3 {
-  font-family: 'Syne', sans-serif;
-  font-size: 1.02rem;
-  font-weight: 700;
-  color: var(--navy);
-  margin-bottom: 0.6rem;
-}
-.k-card p { font-size: 0.875rem; color: var(--muted); line-height: 1.75; }
-.k-tag {
-  display: inline-block;
-  font-size: 0.72rem;
-  font-weight: 500;
-  padding: 0.22rem 0.65rem;
-  border-radius: 4px;
-  margin-top: 0.9rem;
-}
-.tag-teal  { background: rgba(0,201,167,0.1); color: var(--teal2); }
-.tag-gold  { background: rgba(244,168,37,0.13); color: #B07810; }
-.tag-navy  { background: rgba(10,22,40,0.08); color: var(--navy); }
-
-/* ===================== SOURCING CONTENT BLOCKS ===================== */
-.sourcing-bg { background: var(--light); }
-.content-block {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3.5rem;
-  align-items: center;
-  margin-bottom: 3.5rem;
-  padding-bottom: 3.5rem;
-  border-bottom: 1px solid var(--border);
-}
-.content-block:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
-.content-block.reverse { direction: rtl; }
-.content-block.reverse > * { direction: ltr; }
-.content-img { border-radius: 14px; overflow: hidden; aspect-ratio: 3/2; }
-.content-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.content-text h3 {
-  font-family: 'Syne', sans-serif;
-  font-size: 1.55rem;
-  font-weight: 800;
-  color: var(--navy);
-  margin-bottom: 0.8rem;
-}
-.content-text p { color: var(--muted); font-size: 0.93rem; line-height: 1.9; margin-bottom: 1.1rem; }
-.bullet-list { display: flex; flex-direction: column; gap: 0.55rem; }
-.bullet-list li {
-  font-size: 0.88rem;
-  color: var(--text);
-  display: flex;
-  align-items: flex-start;
-  gap: 0.65rem;
-  line-height: 1.65;
-}
-.bullet-list li::before {
-  content: '';
-  width: 6px; height: 6px;
-  border-radius: 50%;
-  background: var(--teal);
-  margin-top: 7px;
-  flex-shrink: 0;
+/* ── BASE ── */
+body{
+  font-family:var(--sans);
+  background:var(--cream);
+  color:var(--ink);
+  font-size:16px;
+  line-height:1.65;
+  overflow-x:hidden;
 }
 
-/* ===================== DEI CARDS ===================== */
-.dei-bg { background: var(--white); }
-.dei-card {
-  background: var(--navy);
-  border-radius: 16px;
-  padding: 2rem;
-  color: #fff;
-  transition: transform 0.25s;
+/* ── NOISE TEXTURE OVERLAY ── */
+body::before{
+  content:'';
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:1000;
+  opacity:.025;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size:200px 200px;
 }
-.dei-card:hover { transform: translateY(-3px); }
-.dei-icon {
-  width: 44px; height: 44px;
-  background: rgba(0,201,167,0.13);
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 1rem;
-}
-.dei-icon svg { width: 22px; height: 22px; stroke: var(--teal); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-.dei-card h3 {
-  font-family: 'Syne', sans-serif;
-  font-size: 1rem;
-  font-weight: 700;
-  margin-bottom: 0.6rem;
-  color: #fff;
-}
-.dei-card p { font-size: 0.875rem; color: rgba(255,255,255,0.58); line-height: 1.75; }
 
-/* ===================== LINKEDIN ===================== */
-.li-bg { background: var(--light); }
-.li-img { border-radius: 16px; overflow: hidden; aspect-ratio: 3/4; }
-.li-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.tips-list { display: flex; flex-direction: column; gap: 1rem; }
-.li-tip {
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: 13px;
-  padding: 1.25rem;
-  display: flex;
-  gap: 1rem;
-  align-items: flex-start;
-  transition: border-color 0.2s;
-}
-.li-tip:hover { border-color: var(--teal); }
-.li-num {
-  width: 34px; height: 34px;
-  background: var(--navy);
-  color: #fff;
-  border-radius: 9px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: 'Syne', sans-serif;
-  font-weight: 800;
-  font-size: 0.82rem;
-  flex-shrink: 0;
-}
-.li-tip h4 { font-size: 0.9rem; font-weight: 500; color: var(--navy); margin-bottom: 0.3rem; }
-.li-tip p { font-size: 0.83rem; color: var(--muted); line-height: 1.65; }
+/* ── UTILITY ── */
+.wrap{max-width:1200px;margin:0 auto;padding:0 3rem}
+section{padding:6rem 0}
 
-/* ===================== EBOOK STORE ===================== */
-.store-bg { background: var(--navy); }
-.store-bg h2 { color: #fff; }
-.store-bg .section-lead { color: rgba(255,255,255,0.5); }
-.store-section-tag {
-  display: inline-block;
-  background: rgba(0,201,167,0.15);
-  color: var(--teal);
-  font-size: 0.73rem;
-  font-weight: 500;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  padding: 0.3rem 0.85rem;
-  border-radius: 4px;
-  margin-bottom: 1rem;
-}
-.divider-label {
-  text-align: center;
-  color: rgba(255,255,255,0.3);
-  font-size: 0.82rem;
-  letter-spacing: 0.08em;
-  margin: 2.5rem 0 1.5rem;
-  position: relative;
-}
-.divider-label::before, .divider-label::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  width: 30%;
-  height: 1px;
-  background: rgba(255,255,255,0.1);
-}
-.divider-label::before { left: 0; }
-.divider-label::after { right: 0; }
+/* ── DECORATIVE LINE ── */
+.rule{width:60px;height:2px;background:var(--amber);margin:0 0 1.5rem}
+.rule-center{margin:0 auto 1.5rem}
 
-/* Bundles */
-.bundles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
-.bundle-card {
-  border-radius: 18px;
-  padding: 2rem;
-  border: 1px solid rgba(255,255,255,0.1);
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
+/* ── LABELS ── */
+.eyebrow{
+  font-family:var(--sans);
+  font-size:.7rem;
+  font-weight:600;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--amber);
 }
-.bundle-starter { background: rgba(255,255,255,0.04); }
-.bundle-pro     { background: rgba(0,201,167,0.08); border-color: rgba(0,201,167,0.32); }
-.bundle-master  { background: rgba(244,168,37,0.07); border-color: rgba(244,168,37,0.28); }
 
-.popular-badge {
-  position: absolute;
-  top: 1.1rem; right: 1.1rem;
-  background: var(--teal);
-  color: var(--navy);
-  font-size: 0.67rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  padding: 0.22rem 0.6rem;
-  border-radius: 5px;
-}
-.pack-label {
-  display: inline-block;
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  padding: 0.25rem 0.7rem;
-  border-radius: 4px;
-  margin-bottom: 0.9rem;
-}
-.bundle-starter .pack-label { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.55); }
-.bundle-pro     .pack-label { background: rgba(0,201,167,0.2); color: var(--teal); }
-.bundle-master  .pack-label { background: rgba(244,168,37,0.15); color: var(--gold); }
+/* ── HEADINGS ── */
+h1,h2,h3{font-family:var(--serif)}
+h2{font-size:2.6rem;font-weight:700;line-height:1.15;color:var(--ink)}
+h3{font-size:1.4rem;font-weight:700;line-height:1.3;color:var(--ink)}
 
-.bundle-card h3 {
-  font-family: 'Syne', sans-serif;
-  font-size: 1.25rem;
-  font-weight: 800;
-  color: #fff;
-  margin-bottom: 0.2rem;
-}
-.bundle-sub { font-size: 0.8rem; color: rgba(255,255,255,0.4); margin-bottom: 0.85rem; }
-.bundle-price {
-  font-family: 'Syne', sans-serif;
-  font-size: 2.1rem;
-  font-weight: 800;
-  margin-bottom: 1.2rem;
-  line-height: 1;
-}
-.bundle-starter .bundle-price { color: #fff; }
-.bundle-pro     .bundle-price { color: var(--teal); }
-.bundle-master  .bundle-price { color: var(--gold); }
+/* ── BODY TEXT ── */
+.lead{font-size:1.05rem;color:var(--muted);line-height:1.9;max-width:580px;font-weight:300}
 
-.bundle-books { margin-bottom: 1.5rem; flex: 1; }
-.bundle-books li {
-  font-size: 0.83rem;
-  color: rgba(255,255,255,0.62);
-  padding: 0.4rem 0;
-  border-bottom: 1px solid rgba(255,255,255,0.07);
-  display: flex;
-  align-items: center;
-  gap: 0.65rem;
+/* ── BUTTONS ── */
+.btn{
+  display:inline-block;
+  font-family:var(--sans);
+  font-size:.85rem;
+  font-weight:600;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  padding:.75rem 2rem;
+  border-radius:0;
+  cursor:pointer;
+  transition:all .22s;
 }
-.bundle-books li::before {
-  content: '';
-  width: 5px; height: 5px;
-  border-radius: 50%;
-  background: var(--teal);
-  flex-shrink: 0;
-}
-.bundle-master .bundle-books li::before { background: var(--gold); }
+.btn-ink{background:var(--ink);color:var(--cream);border:2px solid var(--ink)}
+.btn-ink:hover{background:transparent;color:var(--ink)}
+.btn-outline{background:transparent;color:var(--ink);border:2px solid var(--ink)}
+.btn-outline:hover{background:var(--ink);color:var(--cream)}
+.btn-amber{background:var(--amber);color:var(--white);border:2px solid var(--amber)}
+.btn-amber:hover{background:transparent;color:var(--amber)}
+.btn-cream{background:var(--cream);color:var(--ink);border:2px solid var(--cream)}
+.btn-cream:hover{background:transparent;color:var(--cream)}
 
-.buy-btn {
-  display: block;
-  width: 100%;
-  text-align: center;
-  padding: 0.75rem;
-  border-radius: 9px;
-  font-weight: 500;
-  font-size: 0.9rem;
-  transition: all 0.2s;
-  cursor: pointer;
-  letter-spacing: 0.02em;
+/* ═══════════════════════════════════════
+   NAV
+═══════════════════════════════════════ */
+nav{
+  background:var(--ink);
+  position:sticky;top:0;z-index:900;
+  border-bottom:1px solid rgba(245,240,232,.08);
 }
-.bundle-starter .buy-btn {
-  background: rgba(255,255,255,0.1);
-  color: #fff;
-  border: 1px solid rgba(255,255,255,0.2);
+.nav-inner{
+  max-width:1200px;margin:0 auto;padding:0 3rem;
+  height:68px;
+  display:flex;align-items:center;justify-content:space-between;
 }
-.bundle-starter .buy-btn:hover { background: rgba(255,255,255,0.18); }
-.bundle-pro .buy-btn { background: var(--teal); color: var(--navy); border: none; }
-.bundle-pro .buy-btn:hover { background: var(--teal2); }
-.bundle-master .buy-btn { background: var(--gold); color: var(--navy); border: none; }
-.bundle-master .buy-btn:hover { background: var(--gold2); }
+/* LOGO */
+.logo{display:flex;align-items:center;gap:14px}
+.logo-badge{
+  width:46px;height:46px;
+  background:var(--amber);
+  display:flex;align-items:center;justify-content:center;
+  clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%);
+  flex-shrink:0;
+}
+.logo-badge span{
+  font-family:var(--serif);font-size:1rem;font-weight:900;
+  color:var(--ink);letter-spacing:.04em;
+}
+.logo-words{}
+.logo-words .name{
+  font-family:var(--serif);font-size:1.25rem;font-weight:700;
+  color:var(--cream);line-height:1;
+}
+.logo-words .sub{
+  font-family:var(--sans);font-size:.58rem;font-weight:500;
+  letter-spacing:.16em;text-transform:uppercase;
+  color:var(--amber);margin-top:3px;
+}
+/* NAV LINKS */
+.nav-links{display:flex;gap:2.5rem;align-items:center}
+.nav-links a{
+  font-family:var(--sans);font-size:.8rem;font-weight:500;
+  letter-spacing:.06em;text-transform:uppercase;
+  color:rgba(245,240,232,.6);
+  transition:color .2s;
+}
+.nav-links a:hover{color:var(--cream)}
+.nav-cta{
+  background:var(--amber)!important;
+  color:var(--ink)!important;
+  padding:.4rem 1.2rem;
+  font-weight:600!important;
+  letter-spacing:.06em;
+}
+.nav-cta:hover{background:var(--amber2)!important;color:var(--ink)!important}
 
-/* Individual Books Grid */
-.books-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem; }
-.book-card {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.09);
-  border-radius: 13px;
-  padding: 1.25rem 1rem;
-  text-align: center;
-  transition: border-color 0.2s, background 0.2s, transform 0.2s;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+/* ═══════════════════════════════════════
+   HERO
+═══════════════════════════════════════ */
+.hero{
+  background:var(--ink2);
+  position:relative;
+  overflow:hidden;
+  padding:0;
 }
-.book-card:hover {
-  border-color: rgba(0,201,167,0.45);
-  background: rgba(0,201,167,0.05);
-  transform: translateY(-3px);
+/* diagonal amber accent */
+.hero::after{
+  content:'';
+  position:absolute;
+  top:0;right:0;
+  width:42%;height:100%;
+  background:var(--amber);
+  clip-path:polygon(15% 0,100% 0,100% 100%,0% 100%);
+  z-index:0;
 }
-.book-spine {
-  width: 58px; height: 78px;
-  border-radius: 6px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: 'Syne', sans-serif;
-  font-weight: 800;
-  font-size: 1.4rem;
-  color: rgba(0,0,0,0.7);
-  margin-bottom: 0.85rem;
-  flex-shrink: 0;
+.hero-inner{
+  max-width:1200px;margin:0 auto;padding:0 3rem;
+  display:grid;grid-template-columns:1fr 1fr;
+  min-height:90vh;
+  position:relative;z-index:1;
 }
-.book-card h4 {
-  font-size: 0.77rem;
-  color: rgba(255,255,255,0.78);
-  margin-bottom: 0.6rem;
-  line-height: 1.45;
-  font-weight: 400;
-  flex: 1;
+/* LEFT */
+.hero-left{
+  display:flex;flex-direction:column;justify-content:center;
+  padding:5rem 4rem 5rem 0;
 }
-.book-price {
-  display: block;
-  font-family: 'Syne', sans-serif;
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--teal);
-  margin-bottom: 0.6rem;
+.hero-num{
+  font-family:var(--serif);font-size:9rem;font-weight:900;
+  color:rgba(245,240,232,.04);
+  line-height:1;
+  position:absolute;top:2rem;left:2rem;
+  pointer-events:none;user-select:none;
+  letter-spacing:-.04em;
 }
-.book-buy {
-  display: block;
-  font-size: 0.73rem;
-  color: rgba(255,255,255,0.5);
-  border: 1px solid rgba(255,255,255,0.18);
-  padding: 0.3rem 0.65rem;
-  border-radius: 6px;
-  transition: color 0.2s, border-color 0.2s;
+.hero-eyebrow{
+  font-family:var(--sans);font-size:.7rem;font-weight:600;
+  letter-spacing:.2em;text-transform:uppercase;
+  color:var(--amber);margin-bottom:1.5rem;
+  display:flex;align-items:center;gap:.75rem;
 }
-.book-buy:hover { color: #fff; border-color: rgba(255,255,255,0.5); }
+.hero-eyebrow::before{content:'';width:32px;height:1px;background:var(--amber)}
+.hero h1{
+  font-family:var(--serif);
+  font-size:4.2rem;font-weight:900;
+  line-height:1.05;
+  color:var(--cream);
+  margin-bottom:1.75rem;
+  letter-spacing:-.02em;
+}
+.hero h1 em{
+  font-style:italic;
+  color:var(--amber);
+}
+.hero-body{
+  font-family:var(--sans);font-size:1rem;
+  color:rgba(245,240,232,.6);
+  line-height:1.85;
+  max-width:460px;
+  font-weight:300;
+  margin-bottom:2.5rem;
+}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap}
+.hero-stats{
+  display:flex;gap:3rem;
+  margin-top:3.5rem;
+  padding-top:2.5rem;
+  border-top:1px solid rgba(245,240,232,.1);
+}
+.hstat{}
+.hstat-num{
+  font-family:var(--serif);font-size:2.2rem;font-weight:900;
+  color:var(--cream);line-height:1;
+  display:block;
+}
+.hstat-label{
+  font-size:.72rem;font-weight:500;letter-spacing:.1em;
+  text-transform:uppercase;color:rgba(245,240,232,.45);
+  margin-top:4px;
+}
 
-/* ===================== FOOTER ===================== */
-footer {
-  background: var(--navy);
-  border-top: 1px solid rgba(255,255,255,0.07);
-  padding: 3rem;
-  text-align: center;
+/* RIGHT — image on amber */
+.hero-right{
+  position:relative;z-index:1;
+  display:flex;align-items:center;justify-content:center;
+  padding:4rem 0 4rem 3rem;
 }
-.footer-logo { display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 1rem; }
-.footer-logo svg { width: 36px; height: 36px; }
-.footer-logo .name {
-  font-family: 'Syne', sans-serif;
-  font-size: 1.2rem;
-  font-weight: 800;
-  color: #fff;
+.hero-img-frame{
+  width:100%;aspect-ratio:3/4;
+  position:relative;
+  max-height:620px;
 }
-footer p { font-size: 0.83rem; color: rgba(255,255,255,0.4); line-height: 1.8; }
-.footer-links { display: flex; justify-content: center; gap: 2rem; margin: 1rem 0; }
-.footer-links a { font-size: 0.83rem; color: rgba(255,255,255,0.5); transition: color 0.2s; }
-.footer-links a:hover { color: var(--teal); }
+.hero-img-frame img{
+  width:100%;height:100%;object-fit:cover;
+  display:block;
+  filter:grayscale(20%) contrast(1.05);
+}
+.hero-img-caption{
+  position:absolute;bottom:-1px;left:0;right:0;
+  background:var(--ink);
+  padding:.6rem 1rem;
+  font-family:var(--sans);font-size:.72rem;
+  letter-spacing:.06em;text-transform:uppercase;
+  color:rgba(245,240,232,.5);
+  display:flex;align-items:center;gap:.5rem;
+}
+.hero-img-caption::before{
+  content:'';width:20px;height:1px;background:var(--amber);flex-shrink:0;
+}
 
-/* ===================== RESPONSIVE ===================== */
-@media (max-width: 900px) {
-  .hero-inner, .grid-2, .content-block { grid-template-columns: 1fr; }
-  .content-block.reverse { direction: ltr; }
-  .grid-3 { grid-template-columns: 1fr 1fr; }
-  .bundles { grid-template-columns: 1fr; }
-  .books-grid { grid-template-columns: repeat(2, 1fr); }
-  nav { padding: 0 1.5rem; }
-  .nav-links { display: none; }
-  section { padding: 3.5rem 1.5rem; }
-  .hero { padding: 3.5rem 1.5rem; }
-  h2 { font-size: 1.8rem; }
-  .hero h1 { font-size: 2.3rem; }
+/* ═══════════════════════════════════════
+   MARQUEE STRIP
+═══════════════════════════════════════ */
+.marquee-strip{
+  background:var(--amber);
+  padding:.65rem 0;
+  overflow:hidden;
+  white-space:nowrap;
 }
-@media (max-width: 600px) {
-  .grid-3 { grid-template-columns: 1fr; }
-  .books-grid { grid-template-columns: repeat(2, 1fr); }
+.marquee-track{
+  display:inline-flex;
+  animation:marquee 28s linear infinite;
+}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.marquee-item{
+  font-family:var(--sans);font-size:.72rem;
+  font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ink);
+  padding:0 2.5rem;
+  display:inline-flex;align-items:center;gap:2.5rem;
+}
+.marquee-item::after{
+  content:'◆';font-size:.45rem;color:rgba(15,12,9,.4);
+}
+
+/* ═══════════════════════════════════════
+   KNOWLEDGE HUB
+═══════════════════════════════════════ */
+.knowledge-bg{background:var(--white)}
+.knowledge-header{
+  display:grid;grid-template-columns:1fr 1fr;gap:4rem;
+  align-items:end;margin-bottom:4rem;
+}
+.knowledge-header .lead{max-width:none}
+.kh-right{text-align:right}
+.kh-right .eyebrow{display:block;margin-bottom:.75rem;text-align:right}
+.kh-right h2{text-align:right}
+
+.k-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border)}
+.k-item{
+  background:var(--white);
+  padding:2.25rem;
+  transition:background .25s;
+  position:relative;overflow:hidden;
+}
+.k-item::before{
+  content:'';
+  position:absolute;
+  bottom:0;left:0;
+  width:100%;height:3px;
+  background:var(--amber);
+  transform:scaleX(0);transform-origin:left;
+  transition:transform .3s;
+}
+.k-item:hover{background:var(--cream)}
+.k-item:hover::before{transform:scaleX(1)}
+.k-number{
+  font-family:var(--serif);font-size:3rem;font-weight:900;
+  color:var(--cream3);line-height:1;
+  margin-bottom:1rem;
+}
+.k-item h3{font-size:1.05rem;margin-bottom:.65rem;color:var(--ink)}
+.k-item p{font-size:.865rem;color:var(--muted);line-height:1.75;font-weight:300}
+.k-tag{
+  display:inline-block;margin-top:1rem;
+  font-size:.68rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+  padding:.2rem .65rem;
+  border:1px solid currentColor;
+}
+.tag-amber{color:var(--amber);border-color:rgba(200,134,10,.3)}
+.tag-sage{color:var(--sage);border-color:rgba(61,90,76,.3)}
+.tag-rust{color:var(--rust);border-color:rgba(168,67,35,.3)}
+.tag-ink{color:var(--ink);border-color:rgba(15,12,9,.25)}
+
+/* ═══════════════════════════════════════
+   SOURCING — EDITORIAL LAYOUT
+═══════════════════════════════════════ */
+.sourcing-bg{background:var(--cream)}
+.sourcing-feature{
+  display:grid;grid-template-columns:5fr 4fr;gap:0;
+  border:1px solid var(--border);
+  margin-bottom:2rem;
+  overflow:hidden;
+}
+.sourcing-feature.flip{grid-template-columns:4fr 5fr}
+.sourcing-feature.flip .sf-img{order:2}
+.sourcing-feature.flip .sf-body{order:1}
+.sf-img{position:relative;min-height:400px}
+.sf-img img{width:100%;height:100%;object-fit:cover;display:block}
+.sf-label{
+  position:absolute;top:1.25rem;left:1.25rem;
+  background:var(--amber);
+  color:var(--ink);
+  font-family:var(--sans);font-size:.65rem;
+  font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  padding:.3rem .8rem;
+}
+.sf-body{
+  background:var(--white);
+  padding:3rem;
+  display:flex;flex-direction:column;justify-content:center;
+}
+.sf-body .eyebrow{margin-bottom:.75rem;display:block}
+.sf-body h3{
+  font-family:var(--serif);font-size:1.7rem;font-weight:700;
+  color:var(--ink);margin-bottom:1rem;line-height:1.25;
+}
+.sf-body p{font-size:.9rem;color:var(--muted);line-height:1.85;margin-bottom:1.25rem;font-weight:300}
+.bullet-list{display:flex;flex-direction:column;gap:.5rem}
+.bullet-list li{
+  font-size:.865rem;color:var(--ink);
+  display:flex;align-items:flex-start;gap:.7rem;line-height:1.6;
+}
+.bullet-list li::before{
+  content:'';
+  width:18px;height:1px;background:var(--amber);
+  margin-top:.7rem;flex-shrink:0;
+}
+
+/* ═══════════════════════════════════════
+   DEI — DARK SECTION
+═══════════════════════════════════════ */
+.dei-bg{background:var(--ink)}
+.dei-bg .eyebrow{color:var(--amber)}
+.dei-bg h2{color:var(--cream)}
+.dei-bg .lead{color:rgba(245,240,232,.5)}
+.dei-header{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:4rem;align-items:end;margin-bottom:4rem;
+}
+.dei-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.dei-card{
+  border:1px solid rgba(245,240,232,.08);
+  padding:2rem;
+  position:relative;
+  transition:border-color .25s,transform .25s;
+}
+.dei-card:hover{
+  border-color:rgba(200,134,10,.5);
+  transform:translateY(-4px);
+}
+.dei-card-num{
+  font-family:var(--serif);font-size:1rem;font-weight:900;
+  color:var(--amber);margin-bottom:1.25rem;
+  display:flex;align-items:center;gap:.75rem;
+}
+.dei-card-num::after{content:'';flex:1;height:1px;background:rgba(200,134,10,.25)}
+.dei-card h3{
+  font-family:var(--serif);font-size:1.05rem;font-weight:700;
+  color:var(--cream);margin-bottom:.65rem;
+}
+.dei-card p{font-size:.855rem;color:rgba(245,240,232,.5);line-height:1.8;font-weight:300}
+
+/* ═══════════════════════════════════════
+   LINKEDIN
+═══════════════════════════════════════ */
+.li-bg{background:var(--cream2)}
+.li-layout{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
+.li-img-wrap{position:relative}
+.li-img-wrap img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block;filter:sepia(15%)}
+.li-accent-block{
+  position:absolute;bottom:-1.5rem;right:-1.5rem;
+  background:var(--amber);
+  padding:1.5rem 2rem;
+  max-width:220px;
+}
+.li-accent-block strong{
+  font-family:var(--serif);font-size:2rem;font-weight:900;
+  color:var(--ink);display:block;line-height:1;
+}
+.li-accent-block span{
+  font-size:.72rem;font-weight:600;letter-spacing:.08em;
+  text-transform:uppercase;color:rgba(15,12,9,.65);
+  margin-top:.35rem;display:block;
+}
+.li-tips{display:flex;flex-direction:column;gap:.85rem;margin-top:.5rem}
+.li-tip{
+  display:flex;align-items:flex-start;gap:1.25rem;
+  padding:1.25rem;
+  background:var(--white);
+  border-left:3px solid transparent;
+  transition:border-color .2s;
+}
+.li-tip:hover{border-left-color:var(--amber)}
+.li-tip-num{
+  font-family:var(--serif);font-size:1.4rem;font-weight:900;
+  color:var(--cream3);line-height:1;flex-shrink:0;width:28px;
+}
+.li-tip h4{font-size:.9rem;font-weight:600;color:var(--ink);margin-bottom:.25rem}
+.li-tip p{font-size:.83rem;color:var(--muted);line-height:1.65;font-weight:300}
+
+/* ═══════════════════════════════════════
+   EBOOK STORE
+═══════════════════════════════════════ */
+.store-bg{background:var(--cream)}
+.store-masthead{
+  background:var(--ink);
+  padding:4rem 0;
+  margin-bottom:0;
+  text-align:center;
+  position:relative;overflow:hidden;
+}
+.store-masthead::before{
+  content:'STORE';
+  font-family:var(--serif);font-size:12rem;font-weight:900;
+  color:rgba(245,240,232,.025);
+  position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  white-space:nowrap;pointer-events:none;letter-spacing:-.04em;
+}
+.store-masthead .eyebrow{color:var(--amber);display:block;margin-bottom:1rem}
+.store-masthead h2{color:var(--cream);font-size:3rem;margin-bottom:.75rem}
+.store-masthead .lead{
+  color:rgba(245,240,232,.5);
+  margin:0 auto;font-size:1rem;
+}
+
+/* BUNDLES */
+.bundles-wrap{
+  background:var(--cream);
+  padding:4rem 0;
+}
+.divider-head{
+  text-align:center;margin-bottom:2.5rem;
+}
+.divider-head .eyebrow{display:block;margin-bottom:.5rem}
+.divider-head h3{
+  font-family:var(--serif);font-size:2rem;font-weight:700;
+  color:var(--ink);
+}
+.bundles{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--border)}
+.bundle{
+  padding:2.5rem;
+  border-right:1px solid var(--border);
+  display:flex;flex-direction:column;
+  transition:background .25s;
+  position:relative;
+}
+.bundle:last-child{border-right:none}
+.bundle:hover{background:var(--cream2)}
+.bundle.featured{background:var(--ink);border-color:var(--ink)}
+.bundle.featured:hover{background:var(--ink2)}
+.bundle-badge{
+  position:absolute;top:1.5rem;right:1.5rem;
+  background:var(--amber);color:var(--ink);
+  font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  padding:.2rem .6rem;
+}
+.bundle-icon{
+  font-family:var(--serif);font-size:1.1rem;font-weight:700;
+  letter-spacing:.06em;color:var(--amber);
+  margin-bottom:1.5rem;
+  display:flex;align-items:center;gap:.5rem;
+}
+.bundle h3{
+  font-family:var(--serif);font-size:1.35rem;font-weight:700;
+  margin-bottom:.3rem;
+}
+.bundle:not(.featured) h3{color:var(--ink)}
+.bundle.featured h3{color:var(--cream)}
+.bundle-sub{font-size:.82rem;font-weight:300;color:var(--muted);margin-bottom:1.25rem}
+.bundle.featured .bundle-sub{color:rgba(245,240,232,.45)}
+.bundle-price{
+  font-family:var(--serif);font-size:2.8rem;font-weight:900;
+  line-height:1;color:var(--amber);margin-bottom:1.5rem;
+}
+.bundle-books{flex:1;margin-bottom:1.75rem}
+.bundle-books li{
+  font-size:.82rem;padding:.45rem 0;
+  border-bottom:1px solid var(--border);
+  display:flex;align-items:center;gap:.6rem;
+  color:var(--muted);
+}
+.bundle.featured .bundle-books li{
+  color:rgba(245,240,232,.55);
+  border-bottom-color:rgba(245,240,232,.08);
+}
+.bundle-books li::before{
+  content:'';width:14px;height:1px;background:var(--amber);flex-shrink:0;
+}
+.buy-btn{
+  display:block;text-align:center;
+  font-family:var(--sans);font-size:.78rem;
+  font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+  padding:.8rem 1.5rem;cursor:pointer;
+  transition:all .22s;
+}
+.buy-default{background:var(--ink);color:var(--cream);border:2px solid var(--ink)}
+.buy-default:hover{background:transparent;color:var(--ink)}
+.buy-featured{background:var(--amber);color:var(--ink);border:2px solid var(--amber)}
+.buy-featured:hover{background:transparent;color:var(--amber)}
+
+/* INDIVIDUAL BOOKS */
+.books-wrap{
+  padding:4rem 0;
+  background:var(--white);
+  border-top:1px solid var(--border);
+}
+.books-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--border)}
+.book-card{
+  background:var(--white);
+  padding:1.5rem 1.25rem;
+  display:flex;flex-direction:column;align-items:center;text-align:center;
+  transition:background .2s;
+  position:relative;
+}
+.book-card:hover{background:var(--cream)}
+.book-spine{
+  width:64px;height:86px;
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--serif);font-size:1.6rem;font-weight:900;
+  color:var(--white);
+  margin-bottom:1rem;
+  position:relative;
+  box-shadow:3px 3px 0 rgba(0,0,0,.15);
+}
+.book-card h4{
+  font-family:var(--sans);font-size:.75rem;font-weight:400;
+  color:var(--ink);line-height:1.45;margin-bottom:.65rem;flex:1;
+}
+.book-price{
+  font-family:var(--serif);font-size:1.1rem;font-weight:700;
+  color:var(--amber);display:block;margin-bottom:.6rem;
+}
+.book-buy{
+  display:block;width:100%;
+  font-family:var(--sans);font-size:.68rem;font-weight:600;
+  letter-spacing:.08em;text-transform:uppercase;
+  padding:.35rem .75rem;
+  border:1px solid var(--ink);
+  color:var(--ink);
+  transition:all .2s;
+}
+.book-buy:hover{background:var(--ink);color:var(--cream)}
+
+/* ═══════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════ */
+footer{
+  background:var(--ink2);
+  padding:4rem 0 2.5rem;
+}
+.footer-inner{
+  max-width:1200px;margin:0 auto;padding:0 3rem;
+}
+.footer-top{
+  display:grid;grid-template-columns:1fr 2fr;gap:4rem;
+  padding-bottom:3rem;
+  border-bottom:1px solid rgba(245,240,232,.07);
+  margin-bottom:2rem;
+}
+.footer-brand .logo-words .name{
+  font-family:var(--serif);font-size:1.5rem;font-weight:900;
+  color:var(--cream);
+}
+.footer-brand .logo-words .sub{color:var(--amber)}
+.footer-brand p{
+  font-size:.875rem;color:rgba(245,240,232,.4);
+  line-height:1.8;margin-top:1rem;font-weight:300;max-width:280px;
+}
+.footer-links{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;
+}
+.footer-col h5{
+  font-family:var(--sans);font-size:.68rem;
+  font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--amber);margin-bottom:1rem;
+}
+.footer-col a{
+  display:block;font-size:.85rem;color:rgba(245,240,232,.45);
+  margin-bottom:.55rem;transition:color .2s;font-weight:300;
+}
+.footer-col a:hover{color:var(--cream)}
+.footer-bottom{
+  display:flex;justify-content:space-between;align-items:center;
+  font-size:.78rem;color:rgba(245,240,232,.3);font-weight:300;
+}
+
+/* ═══════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════ */
+@media(max-width:960px){
+  .hero-inner{grid-template-columns:1fr}
+  .hero::after{display:none}
+  .hero-left{padding:4rem 0}
+  .hero-right{display:none}
+  .knowledge-header,.dei-header,.li-layout{grid-template-columns:1fr}
+  .kh-right{text-align:left}
+  .kh-right .eyebrow,.kh-right h2{text-align:left}
+  .k-grid{grid-template-columns:1fr 1fr}
+  .dei-grid{grid-template-columns:1fr 1fr}
+  .sourcing-feature,.sourcing-feature.flip{grid-template-columns:1fr}
+  .sf-img{min-height:260px}
+  .sourcing-feature.flip .sf-img{order:0}
+  .sourcing-feature.flip .sf-body{order:0}
+  .bundles{grid-template-columns:1fr}
+  .bundle{border-right:none;border-bottom:1px solid var(--border)}
+  .bundle:last-child{border-bottom:none}
+  .books-grid{grid-template-columns:repeat(2,1fr)}
+  .footer-top{grid-template-columns:1fr}
+  .footer-links{grid-template-columns:1fr 1fr}
+  nav .nav-links{display:none}
+  .wrap{padding:0 1.5rem}
+  .hero-inner{padding:0 1.5rem}
+  section{padding:4rem 0}
+  h2{font-size:2rem}
+}
+@media(max-width:600px){
+  .k-grid{grid-template-columns:1fr}
+  .dei-grid{grid-template-columns:1fr}
+  .books-grid{grid-template-columns:repeat(2,1fr)}
+  .hero h1{font-size:2.8rem}
 }
 </style>
 </head>
 <body>
 
-<!-- ============================================================ -->
-<!--  NAVBAR                                                      -->
-<!-- ============================================================ -->
+<!-- ═══════ NAV ═══════ -->
 <nav>
-  <a href="#" class="logo">
-    <div class="logo-mark">
-      <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect width="44" height="44" rx="11" fill="#00C9A7"/>
-        <!-- upward chevrons -->
-        <path d="M10 24L22 12L34 24" stroke="#0A1628" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M10 31L22 19L34 31" stroke="#0A1628" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.45"/>
-        <!-- dot at apex -->
-        <circle cx="22" cy="12" r="3" fill="#0A1628"/>
-      </svg>
+  <div class="nav-inner">
+    <a href="#" class="logo">
+      <div class="logo-badge"><span>TSE</span></div>
+      <div class="logo-words">
+        <span class="name">Technical Sourcing</span>
+        <span class="sub">Excellence — Est. 2024</span>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="#knowledge">Knowledge</a>
+      <a href="#sourcing">Sourcing</a>
+      <a href="#dei">DEI</a>
+      <a href="#linkedin">LinkedIn</a>
+      <a href="#store" class="nav-cta">eBook Store</a>
     </div>
-    <div class="logo-wordmark">
-      <span class="name">TSE</span>
-      <span class="tagline">Technical Sourcing Excellence</span>
-    </div>
-  </a>
-  <div class="nav-links">
-    <a href="#knowledge">Knowledge Hub</a>
-    <a href="#sourcing">Sourcing</a>
-    <a href="#dei">DEI</a>
-    <a href="#linkedin">LinkedIn</a>
-    <a href="#store" class="nav-store">eBook Store</a>
   </div>
 </nav>
 
-<!-- ============================================================ -->
-<!--  HERO                                                        -->
-<!-- ============================================================ -->
+<!-- ═══════ HERO ═══════ -->
 <header class="hero">
+  <div class="hero-num">01</div>
   <div class="hero-inner">
-    <div>
-      <div class="hero-badge">
-        <span class="badge-dot"></span>
-        <span>Technical Recruitment Intelligence</span>
-      </div>
-      <h1>Hire <em>Smarter</em>.<br>Source <em>Better</em>.<br>Build Teams That Win.</h1>
-      <p>The definitive knowledge platform for technical recruiters. From Boolean search mastery to DEI hiring strategies — everything you need to find and attract the world's best engineering talent.</p>
+    <div class="hero-left">
+      <div class="hero-eyebrow">Technical Recruitment Intelligence</div>
+      <h1>The Art of<br><em>Exceptional</em><br>Technical Hiring.</h1>
+      <p class="hero-body">The definitive platform for technical recruiters. From Boolean mastery to global DEI strategy — everything you need to source, engage, and deliver outstanding engineering talent.</p>
       <div class="hero-btns">
-        <a href="#store" class="btn-primary">Browse eBook Store</a>
-        <a href="#knowledge" class="btn-outline">Explore Knowledge Hub</a>
+        <a href="#store" class="btn btn-amber">Browse eBook Store</a>
+        <a href="#knowledge" class="btn btn-cream">Explore Knowledge</a>
       </div>
       <div class="hero-stats">
-        <div class="stat">
-          <span class="stat-num">10+</span>
-          <span class="stat-label">Expert eBooks</span>
+        <div class="hstat">
+          <span class="hstat-num">10</span>
+          <span class="hstat-label">Expert eBooks</span>
         </div>
-        <div class="stat">
-          <span class="stat-num">3</span>
-          <span class="stat-label">Learning Packs</span>
+        <div class="hstat">
+          <span class="hstat-num">3</span>
+          <span class="hstat-label">Learning Bundles</span>
         </div>
-        <div class="stat">
-          <span class="stat-num">100%</span>
-          <span class="stat-label">Practical</span>
+        <div class="hstat">
+          <span class="hstat-num">£110</span>
+          <span class="hstat-label">Per Bundle</span>
         </div>
       </div>
     </div>
-    <div class="hero-img">
-      <img
-        src="https://images.unsplash.com/photo-1551836022-4c4c79ecde51?w=800&q=80"
-        alt="Recruiter conducting a professional interview with a candidate"
-        onerror="this.parentElement.style.background='linear-gradient(135deg,#12223F,#0E2A4A)';this.style.display='none'"
-      >
+    <div class="hero-right">
+      <div class="hero-img-frame">
+        <img
+          src="https://images.unsplash.com/photo-1551836022-4c4c79ecde51?w=800&q=85"
+          alt="Professional recruiter conducting a candidate interview"
+          onerror="this.parentElement.style.background='#1C1812';this.style.display='none'"
+        >
+        <div class="hero-img-caption">Delivering Exceptional Candidates</div>
+      </div>
     </div>
   </div>
 </header>
 
-<!-- ============================================================ -->
-<!--  KNOWLEDGE HUB                                               -->
-<!-- ============================================================ -->
-<section id="knowledge">
-  <div class="section-inner">
-    <div class="section-tag">Knowledge Hub</div>
-    <h2>Everything a Technical Recruiter Needs</h2>
-    <p class="section-lead">Deep expertise across every stage of the technical hiring lifecycle — from sourcing strategy to offer acceptance.</p>
-    <div class="grid-3">
+<!-- ═══════ MARQUEE ═══════ -->
+<div class="marquee-strip" aria-hidden="true">
+  <div class="marquee-track">
+    <span class="marquee-item">Technical Recruitment</span>
+    <span class="marquee-item">Boolean Search Mastery</span>
+    <span class="marquee-item">LinkedIn Sourcing</span>
+    <span class="marquee-item">DEI Strategy</span>
+    <span class="marquee-item">Talent Mapping</span>
+    <span class="marquee-item">Candidate Engagement</span>
+    <span class="marquee-item">Recruitment Metrics</span>
+    <span class="marquee-item">Global Hiring</span>
+    <span class="marquee-item">Technical Recruitment</span>
+    <span class="marquee-item">Boolean Search Mastery</span>
+    <span class="marquee-item">LinkedIn Sourcing</span>
+    <span class="marquee-item">DEI Strategy</span>
+    <span class="marquee-item">Talent Mapping</span>
+    <span class="marquee-item">Candidate Engagement</span>
+    <span class="marquee-item">Recruitment Metrics</span>
+    <span class="marquee-item">Global Hiring</span>
+  </div>
+</div>
 
-      <div class="k-card">
-        <div class="k-icon">
-          <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-        </div>
+<!-- ═══════ KNOWLEDGE HUB ═══════ -->
+<section id="knowledge" class="knowledge-bg">
+  <div class="wrap">
+    <div class="knowledge-header">
+      <div>
+        <div class="rule"></div>
+        <div class="eyebrow">Knowledge Hub</div>
+      </div>
+      <div class="kh-right">
+        <span class="eyebrow">The TSE Curriculum</span>
+        <h2>Everything a World-Class Technical Recruiter Needs</h2>
+      </div>
+    </div>
+
+    <div class="k-grid">
+      <div class="k-item">
+        <div class="k-number">01</div>
         <h3>Technical Recruitment Fundamentals</h3>
-        <p>Master the core principles of hiring engineers, developers, and data scientists. Understand the talent market, hiring funnels, and what separates great tech recruiters from average ones.</p>
-        <span class="k-tag tag-teal">Beginner Friendly</span>
+        <p>Master the core principles of hiring engineers, developers, and data scientists. Understand the talent market, hiring funnels, and what separates truly great technical recruiters from average ones.</p>
+        <span class="k-tag tag-sage">Beginner Friendly</span>
       </div>
-
-      <div class="k-card">
-        <div class="k-icon">
-          <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-        </div>
+      <div class="k-item">
+        <div class="k-number">02</div>
         <h3>Boolean Search Mastery</h3>
-        <p>Go beyond basic keyword searches. Craft precision Boolean strings that surface hidden candidates on any platform — LinkedIn, GitHub, Stack Overflow, and the open web.</p>
-        <span class="k-tag tag-navy">Advanced Sourcing</span>
+        <p>Craft precision Boolean strings that surface hidden candidates on any platform — LinkedIn, GitHub, Stack Overflow, and the open web. Go far beyond basic keyword searches.</p>
+        <span class="k-tag tag-ink">Advanced Sourcing</span>
       </div>
-
-      <div class="k-card">
-        <div class="k-icon">
-          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-        </div>
+      <div class="k-item">
+        <div class="k-number">03</div>
         <h3>Candidate Outreach &amp; Engagement</h3>
-        <p>Write messages that actually get responses. Build personalised outreach cadences, handle objections, and create a compelling employer brand narrative that resonates with engineers.</p>
-        <span class="k-tag tag-gold">High Impact</span>
+        <p>Write messages that actually get responses. Build personalised outreach cadences, handle objections confidently, and create a brand narrative that resonates with engineers at every level.</p>
+        <span class="k-tag tag-amber">High Impact</span>
       </div>
-
-      <div class="k-card">
-        <div class="k-icon">
-          <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-        </div>
+      <div class="k-item">
+        <div class="k-number">04</div>
         <h3>Understanding Technical Roles &amp; Skills</h3>
-        <p>Decode job specs with confidence. Know the difference between frontend and backend, DevOps and SRE, ML Engineer and Data Scientist — and ask the right screening questions.</p>
-        <span class="k-tag tag-teal">Essential Knowledge</span>
+        <p>Decode job specs with confidence. Know the difference between frontend and backend, DevOps and SRE, ML Engineer and Data Scientist — and ask the right questions to screen effectively.</p>
+        <span class="k-tag tag-sage">Essential Knowledge</span>
       </div>
-
-      <div class="k-card">
-        <div class="k-icon">
-          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-        </div>
+      <div class="k-item">
+        <div class="k-number">05</div>
         <h3>Resume Screening for Tech Recruiters</h3>
-        <p>Identify signal from noise. Learn to evaluate CVs for technical roles without a coding background — spotting genuine expertise, red flags, and hidden potential in every application.</p>
-        <span class="k-tag tag-navy">Screening</span>
+        <p>Identify signal from noise. Learn to evaluate CVs for technical roles without a coding background — spotting genuine expertise, red flags, and hidden potential in every application you review.</p>
+        <span class="k-tag tag-rust">Screening</span>
       </div>
-
-      <div class="k-card">
-        <div class="k-icon">
-          <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-        </div>
+      <div class="k-item">
+        <div class="k-number">06</div>
         <h3>Recruitment Metrics &amp; Performance</h3>
-        <p>Track what matters. Time-to-hire, offer acceptance rates, funnel conversion, source quality — build dashboards that demonstrate the true ROI of your recruiting operation.</p>
-        <span class="k-tag tag-gold">Data-Driven</span>
+        <p>Track what matters. Time-to-hire, offer acceptance rates, funnel conversion, source quality — build dashboards that prove the measurable ROI of your recruiting operation to stakeholders.</p>
+        <span class="k-tag tag-amber">Data-Driven</span>
       </div>
-
     </div>
   </div>
 </section>
 
-<!-- ============================================================ -->
-<!--  SOURCING STRATEGIES                                         -->
-<!-- ============================================================ -->
+<!-- ═══════ SOURCING STRATEGIES ═══════ -->
 <section id="sourcing" class="sourcing-bg">
-  <div class="section-inner">
-    <div class="section-tag">Sourcing Strategies</div>
-    <h2>Find Talent Before Your Competition Does</h2>
-    <p class="section-lead">Elite sourcers don't wait for applications. They build pipelines, map talent, and engage passive candidates at scale before a role even opens.</p>
+  <div class="wrap">
+    <div class="rule"></div>
+    <div class="eyebrow" style="margin-bottom:.75rem">Sourcing Strategies</div>
+    <h2 style="margin-bottom:.75rem">Find Talent Before<br>Your Competition Does</h2>
+    <p class="lead" style="margin-bottom:3rem">Elite sourcers don't wait for applications. They build pipelines, map talent, and engage passive candidates months before a role opens.</p>
 
-    <div class="content-block">
-      <div class="content-img">
-        <img
-          src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80"
-          alt="Recruiter on a phone call with a candidate, reviewing notes"
-          onerror="this.parentElement.style.background='#DDE6F0';this.style.display='none'"
-        >
+    <div class="sourcing-feature">
+      <div class="sf-img">
+        <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=900&q=85" alt="Recruiter on a call engaging a passive candidate" onerror="this.parentElement.style.background='#DDD5C8'">
+        <div class="sf-label">Multi-Channel Sourcing</div>
       </div>
-      <div class="content-text">
-        <h3>Multi-Channel Sourcing That Delivers</h3>
-        <p>The best technical recruiters don't rely on one platform. A robust sourcing strategy combines multiple channels — each with its own approach, tone, and outreach cadence — to maximise reach and response rates.</p>
+      <div class="sf-body">
+        <span class="eyebrow">Strategy 01</span>
+        <h3>Multi-Channel Sourcing That Consistently Delivers</h3>
+        <p>The best technical recruiters never rely on one platform. A robust sourcing strategy combines multiple channels — each with its own approach, tone, and outreach cadence — to maximise reach and response rates across the market.</p>
         <ul class="bullet-list">
           <li>LinkedIn Recruiter advanced filters and saved talent pools</li>
           <li>GitHub and GitLab open-source contributor mapping</li>
           <li>Stack Overflow Talent and developer community forums</li>
-          <li>Boolean X-Ray search across Google, Bing, and DuckDuckGo</li>
-          <li>Employee referral amplification and incentive programmes</li>
+          <li>Boolean X-Ray search across Google, Bing, DuckDuckGo</li>
+          <li>Employee referral amplification programmes</li>
           <li>Conference speaker lists and technical blog authors</li>
         </ul>
       </div>
     </div>
 
-    <div class="content-block reverse">
-      <div class="content-img">
-        <img
-          src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&q=80"
-          alt="Technology conference with networking recruiters and candidates"
-          onerror="this.parentElement.style.background='#DDE6F0';this.style.display='none'"
-        >
+    <div class="sourcing-feature flip">
+      <div class="sf-img">
+        <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=900&q=85" alt="Recruitment conference and professional networking event" onerror="this.parentElement.style.background='#DDD5C8'">
+        <div class="sf-label">Talent Mapping</div>
       </div>
-      <div class="content-text">
+      <div class="sf-body">
+        <span class="eyebrow">Strategy 02</span>
         <h3>Talent Mapping &amp; Pipeline Building</h3>
-        <p>Stop sourcing reactively. The most effective technical recruiters build talent maps for critical roles 3–6 months in advance, so they're never starting a search from zero when urgency strikes.</p>
+        <p>Stop sourcing reactively. Build talent maps for critical roles 3–6 months before you need them, so you're never starting from zero when hiring urgency strikes. Proactive pipelines consistently outperform reactive searches.</p>
         <ul class="bullet-list">
           <li>Competitor talent mapping and org chart analysis</li>
           <li>Skills-based pipeline segmentation in your ATS</li>
           <li>Warm nurture sequences for passive candidates</li>
-          <li>CRM tagging workflows and talent intelligence tools</li>
-          <li>Market benchmarking and real-time salary intelligence</li>
+          <li>CRM tagging and talent intelligence platforms</li>
+          <li>Market benchmarking and salary intelligence</li>
           <li>Re-engagement strategies for silver medal candidates</li>
         </ul>
       </div>
     </div>
 
-    <div class="content-block">
-      <div class="content-img">
-        <img
-          src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&q=80"
-          alt="Recruiter presenting to a candidate in a professional setting"
-          onerror="this.parentElement.style.background='#DDE6F0';this.style.display='none'"
-        >
+    <div class="sourcing-feature">
+      <div class="sf-img">
+        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=900&q=85" alt="Recruiter presenting shortlist and candidates to a hiring manager" onerror="this.parentElement.style.background='#DDD5C8'">
+        <div class="sf-label">Delivering Candidates</div>
       </div>
-      <div class="content-text">
-        <h3>Delivering Great Candidates</h3>
-        <p>Sourcing is only half the job. Delivering high-quality shortlists that hiring managers trust requires process discipline, quality screening, and clear candidate positioning at every stage.</p>
+      <div class="sf-body">
+        <span class="eyebrow">Strategy 03</span>
+        <h3>Delivering Great Candidates Every Time</h3>
+        <p>Sourcing is only half the job. Delivering high-quality shortlists that hiring managers genuinely trust requires process discipline, quality screening, and clear candidate positioning at every stage of the hiring funnel.</p>
         <ul class="bullet-list">
           <li>Structured intake meetings to align on must-haves vs. nice-to-haves</li>
-          <li>Competency-based phone screens that save interview time</li>
-          <li>Candidate scorecards aligned to role requirements</li>
+          <li>Competency-based phone screens that save valuable interview time</li>
+          <li>Candidate scorecards aligned directly to role requirements</li>
           <li>Transparent briefing documents for every submission</li>
-          <li>Active candidate management throughout the interview process</li>
+          <li>Active candidate management throughout the process</li>
           <li>Post-offer support to close candidates and handle counteroffers</li>
         </ul>
       </div>
     </div>
-
   </div>
 </section>
 
-<!-- ============================================================ -->
-<!--  DEI STRATEGIES                                              -->
-<!-- ============================================================ -->
+<!-- ═══════ DEI ═══════ -->
 <section id="dei" class="dei-bg">
-  <div class="section-inner">
-    <div class="section-tag">DEI Strategies</div>
-    <h2>Build Diverse, Inclusive Engineering Teams</h2>
-    <p class="section-lead">Diversity isn't a checkbox — it's a competitive advantage. Here's how the world's leading tech companies embed inclusion into every stage of technical hiring.</p>
-    <div class="grid-3">
-
+  <div class="wrap">
+    <div class="dei-header">
+      <div>
+        <div class="rule"></div>
+        <div class="eyebrow" style="margin-bottom:.75rem">DEI Strategies</div>
+        <h2 style="color:var(--cream)">Build Diverse,<br>Inclusive Engineering Teams</h2>
+      </div>
+      <div>
+        <p class="lead">Diversity isn't a checkbox — it's a competitive advantage. Here's how the world's leading tech companies embed inclusion into every stage of technical hiring.</p>
+      </div>
+    </div>
+    <div class="dei-grid">
       <div class="dei-card">
-        <div class="dei-icon">
-          <svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
-        </div>
+        <div class="dei-card-num">01</div>
         <h3>Inclusive Job Descriptions</h3>
-        <p>Eliminate gendered language, unnecessary requirements, and jargon that deters underrepresented candidates. Use tools like Textio to score and continuously improve your JDs before publishing.</p>
+        <p>Eliminate gendered language, unnecessary requirements, and jargon that deters underrepresented candidates. Use tools like Textio to continuously improve JDs before publishing.</p>
       </div>
-
       <div class="dei-card">
-        <div class="dei-icon">
-          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-        </div>
+        <div class="dei-card-num">02</div>
         <h3>Diverse Sourcing Channels</h3>
-        <p>Partner with organisations like Black Tech Pipeline, Lesbians Who Tech, and Latinos in Tech. Source from HBCUs, coding bootcamps, and Return-to-Work programmes to reach untapped talent pools.</p>
+        <p>Partner with Black Tech Pipeline, Lesbians Who Tech, and Latinos in Tech. Source from HBCUs, coding bootcamps, and Return-to-Work programmes to reach untapped talent pools.</p>
       </div>
-
       <div class="dei-card">
-        <div class="dei-icon">
-          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        </div>
+        <div class="dei-card-num">03</div>
         <h3>Structured Interviews</h3>
-        <p>Standardise interview questions, use scorecards, and train interviewers to recognise unconscious bias. Consistent processes produce fairer outcomes and consistently better-quality hires.</p>
+        <p>Standardise questions, use scorecards, and train interviewers to recognise unconscious bias. Consistent processes produce fairer outcomes and consistently better-quality hires.</p>
       </div>
-
       <div class="dei-card">
-        <div class="dei-icon">
-          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6"/><path d="M9 12h6"/><path d="M9 15h4"/></svg>
-        </div>
+        <div class="dei-card-num">04</div>
         <h3>Blind Resume Screening</h3>
-        <p>Remove names, addresses, and graduation years from early-stage CV reviews. Focus evaluation entirely on skills, experience, and measurable impact — not demographic proxies or pedigree signals.</p>
+        <p>Remove names, addresses, and graduation years from early-stage reviews. Focus evaluation on skills, experience, and measurable impact — not demographic proxies or pedigree signals.</p>
       </div>
-
       <div class="dei-card">
-        <div class="dei-icon">
-          <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-        </div>
+        <div class="dei-card-num">05</div>
         <h3>Pay Equity Frameworks</h3>
-        <p>Implement transparent salary bands, conduct annual pay equity audits, and train recruiters to make offers based on the role level and market rate — never on a candidate's salary history.</p>
+        <p>Implement transparent salary bands, conduct annual pay equity audits, and train recruiters to make offers based on the role level and market data — never on salary history.</p>
       </div>
-
       <div class="dei-card">
-        <div class="dei-icon">
-          <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-        </div>
+        <div class="dei-card-num">06</div>
         <h3>DEI Metrics &amp; Accountability</h3>
-        <p>Track diversity at every funnel stage — not just at hire. Measure panel diversity, offer rates by demographic, and attrition patterns to identify exactly where your pipeline is losing underrepresented talent.</p>
+        <p>Track diversity at every funnel stage. Measure panel diversity, offer rates by demographic, and attrition patterns to identify exactly where your pipeline is losing underrepresented talent.</p>
       </div>
-
     </div>
   </div>
 </section>
 
-<!-- ============================================================ -->
-<!--  LINKEDIN EXPERTISE                                          -->
-<!-- ============================================================ -->
+<!-- ═══════ LINKEDIN ═══════ -->
 <section id="linkedin" class="li-bg">
-  <div class="section-inner">
-    <div class="grid-2">
+  <div class="wrap">
+    <div class="li-layout">
+      <div class="li-img-wrap">
+        <img
+          src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=700&q=85"
+          alt="Recruiter researching candidates on LinkedIn on a laptop"
+          onerror="this.style.background='#DDD5C8';this.style.minHeight='400px'"
+        >
+        <div class="li-accent-block">
+          <strong>5×</strong>
+          <span>Higher response rates with personalised InMail</span>
+        </div>
+      </div>
       <div>
-        <div class="section-tag">LinkedIn Expertise</div>
-        <h2>LinkedIn Sourcing Mastery</h2>
-        <p class="section-lead">LinkedIn is the world's largest professional network — but most recruiters only scratch the surface. These are the strategies used by elite technical sourcers to consistently outperform.</p>
-        <div class="tips-list">
+        <div class="rule"></div>
+        <div class="eyebrow" style="margin-bottom:.75rem">LinkedIn Expertise</div>
+        <h2 style="margin-bottom:.5rem">LinkedIn Sourcing Mastery</h2>
+        <p class="lead" style="margin-bottom:2rem;font-size:.95rem">Most recruiters only scratch the surface of what LinkedIn can do. These are the strategies used by elite technical sourcers to consistently outperform the market.</p>
+        <div class="li-tips">
           <div class="li-tip">
-            <div class="li-num">01</div>
+            <div class="li-tip-num">01</div>
             <div>
               <h4>Boolean Operators in LinkedIn Search</h4>
-              <p>Combine AND, OR, NOT with parentheses to build precision queries that find exactly the profile you need. Example: (Python OR Django) AND (AWS OR GCP) NOT "engineering manager"</p>
+              <p>Combine AND, OR, NOT with parentheses to build precision queries. Example: (Python OR Django) AND (AWS OR GCP) NOT "engineering manager"</p>
             </div>
           </div>
           <div class="li-tip">
-            <div class="li-num">02</div>
+            <div class="li-tip-num">02</div>
             <div>
               <h4>Skills Filters &amp; Endorsement Signals</h4>
-              <p>Use the Skills filter to narrow by verified expertise. High endorsement counts from respected peers signal genuine community recognition — especially valuable for niche technical skills.</p>
+              <p>High endorsement counts from respected peers signal genuine community recognition — especially valuable for niche technical skills that are hard to verify through CVs alone.</p>
             </div>
           </div>
           <div class="li-tip">
-            <div class="li-num">03</div>
+            <div class="li-tip-num">03</div>
             <div>
               <h4>InMail Personalisation at Scale</h4>
-              <p>Reference a specific post, GitHub project, or article the candidate has published. Personalised InMails consistently achieve 3–5x higher response rates than generic outreach templates.</p>
+              <p>Reference a specific post, project, or article the candidate has published. Personalised InMails achieve 3–5× higher response rates than generic outreach templates.</p>
             </div>
           </div>
           <div class="li-tip">
-            <div class="li-num">04</div>
+            <div class="li-tip-num">04</div>
             <div>
-              <h4>Projects &amp; Saved Searches</h4>
-              <p>Create talent pools organised by role, seniority, and skills. Set up saved searches with weekly alerts to automatically capture newly active candidates matching your target profiles.</p>
+              <h4>Projects &amp; Saved Search Alerts</h4>
+              <p>Organise talent pools by role and seniority. Set weekly alerts to automatically surface newly active candidates matching your target profile before competitors reach them.</p>
             </div>
           </div>
           <div class="li-tip">
-            <div class="li-num">05</div>
+            <div class="li-tip-num">05</div>
             <div>
-              <h4>Open to Work &amp; Career Interests</h4>
-              <p>Filter for candidates who have signalled openness to new opportunities — but never ignore passive candidates. The highest-quality technical hires are typically not actively job searching.</p>
+              <h4>Open to Work &amp; Passive Candidates</h4>
+              <p>Filter for candidates signalling openness — but never ignore passive candidates. The highest-quality technical hires are typically not actively job searching at all.</p>
             </div>
           </div>
         </div>
       </div>
-      <div class="li-img">
-        <img
-          src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=700&q=80"
-          alt="Recruiter reviewing LinkedIn profiles and candidate data on a laptop"
-          onerror="this.parentElement.style.background='#DDE6F0';this.style.display='none'"
-        >
-      </div>
     </div>
   </div>
 </section>
 
-<!-- ============================================================ -->
-<!--  EBOOK STORE                                                 -->
-<!-- ============================================================ -->
-<section id="store" class="store-bg">
-  <div class="section-inner">
-    <div class="store-section-tag">Visit Our Online eBook Store</div>
-    <h2>Level Up With Our Expert eBooks</h2>
-    <p class="section-lead">Practical, recruiter-written guides designed to be applied from day one. Save with a bundle or pick the individual titles you need most.</p>
+<!-- ═══════ EBOOK STORE ═══════ -->
+<section id="store" style="padding:0;background:var(--cream)">
 
-    <!-- BUNDLES -->
-    <div class="divider-label">Bundle Packs — Best Value at £110 each</div>
-    <div class="bundles">
-
-      <div class="bundle-card bundle-starter">
-        <div class="pack-label">Starter Pack</div>
-        <h3>TSE Starter Pack</h3>
-        <p class="bundle-sub">Perfect for new technical recruiters</p>
-        <div class="bundle-price">£110</div>
-        <ul class="bundle-books">
-          <li>Technical Recruitment Fundamentals</li>
-          <li>Resume Screening for Tech Recruiters</li>
-          <li>Candidate Outreach &amp; Engagement</li>
-        </ul>
-        <a href="https://www.paypal.com/ncp/payment/QSYSP9SZ7SZKY" class="buy-btn" target="_blank" rel="noopener">Buy Now via PayPal</a>
-      </div>
-
-      <div class="bundle-card bundle-pro">
-        <div class="popular-badge">Most Popular</div>
-        <div class="pack-label">Pro Pack</div>
-        <h3>TSE Pro Pack</h3>
-        <p class="bundle-sub">For experienced sourcers ready to level up</p>
-        <div class="bundle-price">£110</div>
-        <ul class="bundle-books">
-          <li>Boolean Search Mastery for Recruiters</li>
-          <li>LinkedIn Sourcing Deep Dive</li>
-          <li>Understanding Technical Roles &amp; Skills</li>
-        </ul>
-        <a href="https://www.paypal.com/ncp/payment/QSYSP9SZ7SZKY" class="buy-btn" target="_blank" rel="noopener">Buy Now via PayPal</a>
-      </div>
-
-      <div class="bundle-card bundle-master">
-        <div class="pack-label">Master Pack</div>
-        <h3>TSE Master Pack</h3>
-        <p class="bundle-sub">For senior leaders and recruitment managers</p>
-        <div class="bundle-price">£110</div>
-        <ul class="bundle-books">
-          <li>Global Technical Recruitment Strategies</li>
-          <li>Recruitment Metrics &amp; Performance</li>
-          <li>Advanced Sourcing &amp; Talent Mapping</li>
-        </ul>
-        <a href="https://www.paypal.com/ncp/payment/QSYSP9SZ7SZKY" class="buy-btn" target="_blank" rel="noopener">Buy Now via PayPal</a>
-      </div>
-
-    </div>
-
-    <!-- INDIVIDUAL BOOKS -->
-    <div class="divider-label">Individual Titles — £110 each</div>
-    <div class="books-grid">
-
-      <div class="book-card">
-        <div class="book-spine" style="background:#00C9A7">T</div>
-        <h4>Technical Recruitment Fundamentals</h4>
-        <span class="book-price">£110</span>
-        <a href="https://www.paypal.com/ncp/payment/QSYSP9SZ7SZKY" class="book-buy" target="_blank" rel="noopener">Buy Now</a>
-      </div>
-
-      <div class="book-card">
-        <div class="book-spine" style="background:#5B9BD5">B</div>
-        <h4>Boolean Search Mastery for Recruiters</h4>
-        <span class="book-price">£110</span>
-        <a href="https://www.paypal.com/ncp/payment/QSYSP9SZ7SZKY" class="book-buy" target="_blank" rel="noopener">Buy Now</a>
-      </div>
-
-      <div class="book-card">
-        <div class="book-spine" style="background:#4A90D9">L</div>
-        <h4>LinkedIn Sourcing Deep Dive</h4>
-        <span class="book-price">£110</span>
-        <a href="https://www.paypal.com/ncp/payment/QSYSP9SZ7SZKY" class="book-buy" target="_blank" rel="noopener">Buy Now</a>
-      </div>
-
-      <div class="book-card">
-        <div class="book-spine" style="background:#E67E22">U</div>
-        <h4>Understanding Technical Roles &amp; Skills</h4>
-        <span class="book-price">£110</span>
-        <a href="https://www.paypal.com/ncp/payment/QSYSP9SZ7SZKY" class="book-buy" target="_blank" rel="noopener">Buy Now</a>
-      </div>
-
-      <div class="book-card">
-        <div class="book-spine" style="background:#8E44AD">R</div>
-        <h4>Resume Screening for Tech Recruiters</h4>
-        <span class="book-price">£110</span>
-        <a href="https://www.paypal.com/ncp/payment/QSYSP9SZ7SZKY" class="book-buy" target="_blank" rel="noopener">Buy Now</a>
-      </div>
-
-      <div class="book-card">
-        <div class="book-spine" style="background:#27AE60">C</div>
-        <h4>Candidate Outreach &amp; Engagement</h4>
-        <span class="book-price">£110</span>
-        <a href="https://www.paypal.com/ncp/payment/QSYSP9SZ7SZKY" class="book-buy" target="_blank" rel="noopener">Buy Now</a>
-      </div>
-
-      <div class="book-card">
-        <div class="book-spine" style="background:#E74C3C">I</div>
-        <h4>Interview Coordination &amp; Hiring Process</h4>
-        <span class="book-price">£110</span>
-        <a href="https://www.paypal.com/ncp/payment/QSYSP9SZ7SZKY" class="book-buy" target="_blank" rel="noopener">Buy Now</a>
-      </div>
-
-      <div class="book-card">
-        <div class="book-spine" style="background:#16A085">G</div>
-        <h4>Global Technical Recruitment Strategies</h4>
-        <span class="book-price">£110</span>
-        <a href="https://www.paypal.com/ncp/payment/QSYSP9SZ7SZKY" class="book-buy" target="_blank" rel="noopener">Buy Now</a>
-      </div>
-
-      <div class="book-card">
-        <div class="book-spine" style="background:#D35400">M</div>
-        <h4>Recruitment Metrics &amp; Performance</h4>
-        <span class="book-price">£110</span>
-        <a href="https://www.paypal.com/ncp/payment/QSYSP9SZ7SZKY" class="book-buy" target="_blank" rel="noopener">Buy Now</a>
-      </div>
-
-      <div class="book-card">
-        <div class="book-spine" style="background:#2C3E50">A</div>
-        <h4>Advanced Sourcing &amp; Talent Mapping</h4>
-        <span class="book-price">£110</span>
-        <a href="https://www.paypal.com/ncp/payment/QSYSP9SZ7SZKY" class="book-buy" target="_blank" rel="noopener">Buy Now</a>
-      </div>
-
+  <!-- masthead -->
+  <div class="store-masthead">
+    <div class="wrap">
+      <span class="eyebrow">Visit Our Online eBook Store</span>
+      <h2>Level Up With Our Expert eBooks</h2>
+      <p class="lead">Recruiter-written. Instantly applicable. Choose a bundle or pick individual titles.</p>
     </div>
   </div>
+
+  <!-- BUNDLES -->
+  <div class="bundles-wrap">
+    <div class="wrap">
+      <div class="divider-head">
+        <span class="eyebrow">Bundle Packs</span>
+        <h3>Best Value — £110 Each</h3>
+      </div>
+      <div class="bundles">
+
+        <div class="bundle">
+          <div class="bundle-icon">◆ Starter</div>
+          <h3>TSE Starter Pack</h3>
+          <p class="bundle-sub">Perfect for new technical recruiters entering the field</p>
+          <div class="bundle-price">£110</div>
+          <ul class="bundle-books">
+            <li>Technical Recruitment Fundamentals</li>
+            <li>Resume Screening for Tech Recruiters</li>
+            <li>Candidate Outreach &amp; Engagement</li>
+          </ul>
+          <a href="https://www.paypal.com/ncp/payment/QSYSP9SZ7SZKY" class="buy-btn buy-default" target="_blank" rel="noopener">Buy Now via PayPal</a>
+        </div>
+
+        <div class="bundle featured">
+          <div class="bundle-badge">Most Popular</div>
+          <div class="bundle-icon">◆ Pro</div>
+          <h3>TSE Pro Pack</h3>
+          <p class="bundle-sub">For experienced sourcers ready to level up</p>
+          <div class="bundle-price">£110</div>
+          <ul class="bundle-books">
+            <li>Boolean Search Mastery for Recruiters</li>
+            <li>LinkedIn Sourcing Deep Dive</li>
+            <li>Understanding Technical Roles &amp; Skills</li>
+          </ul>
+          <a href="https://www.paypal.com/ncp/payment/QSYSP9SZ7SZKY" class="buy-btn buy-featured" target="_blank" rel="noopener">Buy Now via PayPal</a>
+        </div>
+
+        <div class="bundle">
+          <div class="bundle-icon">◆ Master</div>
+          <h3>TSE Master Pack</h3>
+          <p class="bundle-sub">For senior leaders and recruitment managers</p>
+          <div class="bundle-price">£110</div>
+          <ul class="bundle-books">
+            <li>Global Technical Recruitment Strategies</li>
+            <li>Recruitment Metrics &amp; Performance</li>
+            <li>Advanced Sourcing &amp; Talent Mapping</li>
+          </ul>
+          <a href="https://www.paypal.com/ncp/payment/QSYSP9SZ7SZKY" class="buy-btn buy-default" target="_blank" rel="noopener">Buy Now via PayPal</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- INDIVIDUAL BOOKS -->
+  <div class="books-wrap">
+    <div class="wrap" style="margin-bottom:1.5rem">
+      <div class="divider-head">
+        <span class="eyebrow">Individual Titles</span>
+        <h3>£110 Each via PayPal</h3>
+      </div>
+    </div>
+    <div style="max-width:1200px;margin:0 auto;padding:0 3rem">
+      <div class="books-grid">
+        <div class="book-card">
+          <div class="book-spine" style="background:#2D6A4F">T</div>
+          <h4>Technical Recruitment Fundamentals</h4>
+          <span class="book-price">£110</span>
+          <a href="https://www.paypal.com/ncp/payment/QSYSP9SZ7SZKY" class="book-buy" target="_blank" rel="noopener">Buy Now</a>
+        </div>
+        <div class="book-card">
+          <div class="book-spine" style="background:#1B4F72">B</div>
+          <h4>Boolean Search Mastery for Recruiters</h4>
+          <span class="book-price">£110</span>
+          <a href="https://www.paypal.com/ncp/payment/QSYSP9SZ7SZKY" class="book-buy" target="_blank" rel="noopener">Buy Now</a>
+        </div>
+        <div class="book-card">
+          <div class="book-spine" style="background:#154360">L</div>
+          <h4>LinkedIn Sourcing Deep Dive</h4>
+          <span class="book-price">£110</span>
+          <a href="https://www.paypal.com/ncp/payment/QSYSP9SZ7SZKY" class="book-buy" target="_blank" rel="noopener">Buy Now</a>
+        </div>
+        <div class="book-card">
+          <div class="book-spine" style="background:#784212">U</div>
+          <h4>Understanding Technical Roles &amp; Skills</h4>
+          <span class="book-price">£110</span>
+          <a href="https://www.paypal.com/ncp/payment/QSYSP9SZ7SZKY" class="book-buy" target="_blank" rel="noopener">Buy Now</a>
+        </div>
+        <div class="book-card">
+          <div class="book-spine" style="background:#6C3483">R</div>
+          <h4>Resume Screening for Tech Recruiters</h4>
+          <span class="book-price">£110</span>
+          <a href="https://www.paypal.com/ncp/payment/QSYSP9SZ7SZKY" class="book-buy" target="_blank" rel="noopener">Buy Now</a>
+        </div>
+        <div class="book-card">
+          <div class="book-spine" style="background:#1E8449">C</div>
+          <h4>Candidate Outreach &amp; Engagement</h4>
+          <span class="book-price">£110</span>
+          <a href="https://www.paypal.com/ncp/payment/QSYSP9SZ7SZKY" class="book-buy" target="_blank" rel="noopener">Buy Now</a>
+        </div>
+        <div class="book-card">
+          <div class="book-spine" style="background:#922B21">I</div>
+          <h4>Interview Coordination &amp; Hiring Process</h4>
+          <span class="book-price">£110</span>
+          <a href="https://www.paypal.com/ncp/payment/QSYSP9SZ7SZKY" class="book-buy" target="_blank" rel="noopener">Buy Now</a>
+        </div>
+        <div class="book-card">
+          <div class="book-spine" style="background:#0E6655">G</div>
+          <h4>Global Technical Recruitment Strategies</h4>
+          <span class="book-price">£110</span>
+          <a href="https://www.paypal.com/ncp/payment/QSYSP9SZ7SZKY" class="book-buy" target="_blank" rel="noopener">Buy Now</a>
+        </div>
+        <div class="book-card">
+          <div class="book-spine" style="background:#935116">M</div>
+          <h4>Recruitment Metrics &amp; Performance</h4>
+          <span class="book-price">£110</span>
+          <a href="https://www.paypal.com/ncp/payment/QSYSP9SZ7SZKY" class="book-buy" target="_blank" rel="noopener">Buy Now</a>
+        </div>
+        <div class="book-card">
+          <div class="book-spine" style="background:#1A252F">A</div>
+          <h4>Advanced Sourcing &amp; Talent Mapping</h4>
+          <span class="book-price">£110</span>
+          <a href="https://www.paypal.com/ncp/payment/QSYSP9SZ7SZKY" class="book-buy" target="_blank" rel="noopener">Buy Now</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </section>
 
-<!-- ============================================================ -->
-<!--  FOOTER                                                      -->
-<!-- ============================================================ -->
+<!-- ═══════ FOOTER ═══════ -->
 <footer>
-  <div class="footer-logo">
-    <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect width="44" height="44" rx="11" fill="#00C9A7"/>
-      <path d="M10 24L22 12L34 24" stroke="#0A1628" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M10 31L22 19L34 31" stroke="#0A1628" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.45"/>
-      <circle cx="22" cy="12" r="3" fill="#0A1628"/>
-    </svg>
-    <span class="name">TSE</span>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="logo-words">
+          <span class="name">TSE</span>
+          <span class="sub">Technical Sourcing Excellence</span>
+        </div>
+        <p>The definitive knowledge platform and eBook store for technical recruiters who want to hire smarter, source better, and build outstanding engineering teams.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h5>Knowledge</h5>
+          <a href="#knowledge">Knowledge Hub</a>
+          <a href="#sourcing">Sourcing Strategies</a>
+          <a href="#dei">DEI Strategies</a>
+          <a href="#linkedin">LinkedIn Mastery</a>
+        </div>
+        <div class="footer-col">
+          <h5>Store</h5>
+          <a href="#store">TSE Starter Pack</a>
+          <a href="#store">TSE Pro Pack</a>
+          <a href="#store">TSE Master Pack</a>
+          <a href="#store">All Individual Titles</a>
+        </div>
+        <div class="footer-col">
+          <h5>Company</h5>
+          <a href="#">About TSE</a>
+          <a href="#">Contact Us</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms &amp; Conditions</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 TSE — Technical Sourcing Excellence. All rights reserved.</span>
+      <span>Empowering technical recruiters worldwide.</span>
+    </div>
   </div>
-  <div class="footer-links">
-    <a href="#knowledge">Knowledge Hub</a>
-    <a href="#sourcing">Sourcing</a>
-    <a href="#dei">DEI</a>
-    <a href="#linkedin">LinkedIn</a>
-    <a href="#store">eBook Store</a>
-  </div>
-  <p>© 2025 TSE — Technical Sourcing Excellence. All rights reserved.<br>Empowering technical recruiters worldwide to hire smarter and build better teams.</p>
 </footer>
 
 </body>
